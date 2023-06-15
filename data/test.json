@@ -1,0 +1,15 @@
+{
+  "_id":"user1",
+  "projects":[
+    {
+      "id":"1",
+      "name":"Todo Service",
+      "description":"BAckend simulation of  an todo application"
+    },
+    {
+      "id":"2",
+      "name":"Movie service",
+      "description":"Backend simulation of  an Movie application"
+    }
+  ]
+}
