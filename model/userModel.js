@@ -1,12 +1,25 @@
 const mongoose = require("mongoose")
 
 const schema = new mongoose.Schema({
-  userId: {
-    type: String,
-    unique:true,
-    require: true,
+  _id:{
+    type:String,
+    require:true,
   },
-  projects: [{ type: mongoose.Types.ObjectId, ref: "projects" }],
-})
+  projects: [
+    {
+      projectId: {
+        type: mongoose.Types.ObjectId,
+        require: true,
+      },
+      name: {
+        type: String,
+        require: true,
+      },
+      description: {
+        type: String,
+      },
+    },
+  ],
+},{versionKey:false})
 
-exports.User = mongoose.model("user", schema)
+exports.User = mongoose.model("users", schema)
