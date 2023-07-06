@@ -10,7 +10,7 @@ const verifyToken = async (req, res, next) => {
     req.userId = user.uid
     console.log({ id: user.uid, email: user.email })
   } catch (e) {
-    res.status(403).send({ message: "error" })
+    res.status(403).send({ message: "invalid token" })
     return
   }
   next()

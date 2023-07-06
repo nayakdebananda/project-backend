@@ -12,10 +12,8 @@ const publicController = async (req, res) => {
   console.log("requested endpoint : ", endpoint)
 
   const option = { projectId: projectID, method: req.method, url: endpoint }
-  const data = await getMockResponses(option, { responses: 1 })
-  const response = data?.responses?.filter(d => {
-    return _.isEqual(d.body || {}, req.body)
-  })[0]
+  const response = await getMockResponses(option)
+  
 
   console.log("desired response ",response)
   if (!response) {
@@ -23,7 +21,7 @@ const publicController = async (req, res) => {
     return
   }
   
-  res.status(response.status).send(response.response)
+  res.status(response.statusCode || 200).send(response.response)
 }
 
 function notFound(req,res) {

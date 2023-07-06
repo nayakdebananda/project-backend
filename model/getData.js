@@ -1,6 +1,6 @@
 const { Project } = require("./projectsModel")
-async function getMockResponses(option, fields) {
-  const data = await Project.findOne(option, fields)
+async function getMockResponses(option) {
+  const data = await Project.findOne(option)
   return data
 }
 
